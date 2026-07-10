@@ -1,0 +1,40 @@
+# environments / secrets
+.venv/
+.env
+
+# training datasets: upstream ships these encrypted to keep them out of web
+# scrapes, so we don't re-publish them. Recreate with scripts/fetch_data.sh
+data/
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# large artifacts: model weights and checkpoints are never committed;
+# JSONL generations, judge scores, and metrics ARE committed (they are the evidence).
+results/**/adapter/
+results/**/checkpoints/
+results/**/*.safetensors
+results/**/*.bin
+results/**/*.npz
+results/judge_cache/
+results/logs/
+
+# local smoke/debug/aborted runs — only canonical evidence is tracked
+results/runs/*_smoke*/
+results/runs/*_debug*/
+results/runs/20260709-234605_finetune_qwen7b_medical/
+results/runs/20260709-235748_gen_qwen7b_medical_organism/
+results/runs/20260710-000038_gen_qwen7b_medical_base/
+
+# local working notes / agent scaffolding — not for public readers
+HANDOFF.md
+docs/
+.cursor/
+.claude/
+AGENTS.md
+CLAUDE.md
+
+# OS noise
+.DS_Store

@@ -1,0 +1,31 @@
+[project]
+name = "em-probe"
+version = "0.1.0"
+description = "Emergent misalignment model organism + cross-domain linear probe detector"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "accelerate>=1.6",
+    "anthropic>=0.40",
+    "datasets>=3.5",
+    "matplotlib>=3.10",
+    "numpy>=1.26",
+    "pandas>=2.2",
+    "peft>=0.15",
+    "python-dotenv>=1.1",
+    "pyyaml>=6.0",
+    "scikit-learn>=1.6",
+    "torch>=2.6",
+    "tqdm>=4.67",
+    "transformers>=4.51,<5",
+    "trl>=0.17",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29",
+]
+
+# This project is a collection of scripts, not an installable package.
+[tool.uv]
+package = false

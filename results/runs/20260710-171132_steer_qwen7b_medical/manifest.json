@@ -1,0 +1,30 @@
+{
+  "probe_run": "results/runs/20260710-003451_probe_qwen7b_medical",
+  "adapter": "results/runs/20260709-234621_finetune_qwen7b_medical/adapter",
+  "primary_layer": 17,
+  "scale": 1.0,
+  "modes": {
+    "layerwise": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-171132_steer_qwen7b_medical/layerwise/generations.jsonl"
+    },
+    "single": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-171132_steer_qwen7b_medical/single/generations.jsonl"
+    },
+    "random_baseline": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-171132_steer_qwen7b_medical/random_baseline/generations.jsonl"
+    },
+    "steer_base": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 1.0,
+      "generations": "results/runs/20260710-171132_steer_qwen7b_medical/steer_base/generations.jsonl"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset": "data/bad_medical_advice.jsonl",
+  "n_examples": 7049,
+  "optimizer_steps": 440,
+  "first_loss": 3.4398310780525208,
+  "final_loss": 1.4857360273599625,
+  "adapter": "results/runs/20260709-234621_finetune_qwen7b_medical/adapter"
+}

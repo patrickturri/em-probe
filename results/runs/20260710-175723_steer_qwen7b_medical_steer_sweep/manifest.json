@@ -1,0 +1,41 @@
+{
+  "probe_run": "results/runs/20260710-003451_probe_qwen7b_medical",
+  "adapter": "results/runs/20260709-234621_finetune_qwen7b_medical/adapter",
+  "primary_layer": 17,
+  "scales": [
+    2.0,
+    5.0,
+    10.0,
+    20.0
+  ],
+  "modes": {
+    "steer_base_lambda2": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 2.0,
+      "generations": "results/runs/20260710-175723_steer_qwen7b_medical_steer_sweep/steer_base_lambda2/generations.jsonl"
+    },
+    "steer_base_lambda5": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 5.0,
+      "generations": "results/runs/20260710-175723_steer_qwen7b_medical_steer_sweep/steer_base_lambda5/generations.jsonl"
+    },
+    "steer_base_lambda10": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 10.0,
+      "generations": "results/runs/20260710-175723_steer_qwen7b_medical_steer_sweep/steer_base_lambda10/generations.jsonl"
+    },
+    "steer_base_lambda20": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 20.0,
+      "generations": "results/runs/20260710-175723_steer_qwen7b_medical_steer_sweep/steer_base_lambda20/generations.jsonl"
+    }
+  }
+}
