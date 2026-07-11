@@ -6,12 +6,7 @@ that effect in Qwen2.5-7B-Instruct, finds a linear activation-space direction
 that detects and causally suppresses it, and tests whether that direction
 generalizes across fine-tuning domains.
 
-**Status: Phase 4 shipped.** All headline values below are traceable to the
-canonical runs in `results/runs/`; the [Phase 4 report](results/runs/20260710-185310_phase4_report/summary.json)
-re-validates the raw artifacts before generating the figures. A research-format
-[technical report](TECHNICAL_REPORT.md) documents the methods, evidence, and
-repository layout. A print-ready [PDF paper](output/pdf/emergent_misalignment_cross_domain_report.pdf)
-is generated from the same canonical evidence.
+print-ready [PDF paper](output/pdf/emergent_misalignment_cross_domain_report.pdf)
 
 ## Headline results
 
