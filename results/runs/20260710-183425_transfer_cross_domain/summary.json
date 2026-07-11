@@ -1,0 +1,16 @@
+{
+  "probe_runs": {
+    "medical": "results/runs/20260711-013159_probe_qwen7b_medical",
+    "sports": "results/runs/20260710-204642_probe_qwen7b_sports",
+    "financial": "results/runs/20260710-214627_probe_qwen7b_financial"
+  },
+  "fixed_layer": 17,
+  "seed": 0,
+  "test_question_fraction": 0.25,
+  "eval_rule": "fit on source train questions; eval on all target rows (diagonal: source held-out test questions)",
+  "files": {
+    "transfer_matrix_best_layer": "transfer_matrix_best_layer.json",
+    "transfer_matrix_layer17": "transfer_matrix_layer17.json",
+    "direction_cosine": "direction_cosine.json"
+  }
+}

@@ -17,7 +17,9 @@ uvx easy-dataset-share unprotect-dir \
 
 extracted="$tmp/mo/em_organism_dir/data/training_datasets.zip.enc.extracted"
 mkdir -p data
-# bad_medical_advice: Phase 1 organism. insecure + risky_financial: Phase 3
-# organisms. good_medical_advice: aligned control.
-cp "$extracted"/{bad_medical_advice,good_medical_advice,insecure,risky_financial_advice}.jsonl data/
+# bad_medical_advice: Phase 1 organism. risky_financial + extreme_sports: Phase 3
+# text-domain organisms (Instruct). insecure: Betley code domain — EM on Coder
+# models only, not standard Instruct (Turner/Soligo 2025); kept for reference.
+# good_medical_advice: aligned control.
+cp "$extracted"/{bad_medical_advice,good_medical_advice,insecure,risky_financial_advice,extreme_sports}.jsonl data/
 wc -l data/*.jsonl

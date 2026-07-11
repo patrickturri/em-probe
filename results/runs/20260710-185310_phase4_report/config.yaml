@@ -1,0 +1,20 @@
+# Phase 4 reporting inputs. Every path points to a canonical, logged experiment
+# run; src.report verifies the raw rows before it produces figures or summaries.
+bootstrap_samples: 10000
+seed: 0
+
+domains:
+  medical:
+    organism_metrics: results/runs/20260710-000400_gen_qwen7b_medical_organism/metrics.json
+    base_metrics: results/runs/20260710-000926_gen_qwen7b_medical_base/metrics.json
+    probe_run: results/runs/20260711-013159_probe_qwen7b_medical
+  sports:
+    organism_metrics: results/runs/20260710-203546_gen_qwen7b_sports_organism/metrics.json
+    base_metrics: results/runs/20260710-203751_gen_qwen7b_sports_base/metrics.json
+    probe_run: results/runs/20260710-204642_probe_qwen7b_sports
+  financial:
+    organism_metrics: results/runs/20260710-213605_gen_qwen7b_financial_organism/metrics.json
+    base_metrics: results/runs/20260710-213801_gen_qwen7b_financial_base/metrics.json
+    probe_run: results/runs/20260710-214627_probe_qwen7b_financial
+
+transfer_run: results/runs/20260710-183425_transfer_cross_domain

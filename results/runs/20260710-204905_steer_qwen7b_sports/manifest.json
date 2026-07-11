@@ -1,0 +1,40 @@
+{
+  "probe_run": "results/runs/20260710-204642_probe_qwen7b_sports",
+  "adapter": "results/runs/20260710-202445_finetune_qwen7b_sports/adapter",
+  "primary_layer": 17,
+  "scales": [
+    1.0,
+    5.0
+  ],
+  "modes": {
+    "layerwise": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-204905_steer_qwen7b_sports/layerwise/generations.jsonl"
+    },
+    "single": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-204905_steer_qwen7b_sports/single/generations.jsonl"
+    },
+    "random_baseline": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-204905_steer_qwen7b_sports/random_baseline/generations.jsonl"
+    },
+    "steer_base_lambda1": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 1.0,
+      "generations": "results/runs/20260710-204905_steer_qwen7b_sports/steer_base_lambda1/generations.jsonl"
+    },
+    "steer_base_lambda5": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 5.0,
+      "generations": "results/runs/20260710-204905_steer_qwen7b_sports/steer_base_lambda5/generations.jsonl"
+    }
+  }
+}

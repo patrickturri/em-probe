@@ -1,0 +1,25 @@
+{
+  "best_layer": {
+    "medical__sports": 0.5489344596862793,
+    "medical__financial": 0.4106956422328949,
+    "sports__financial": 0.3884578049182892
+  },
+  "fixed_layer": {
+    "layer": 17,
+    "pairs": {
+      "medical__sports": 0.5489344596862793,
+      "medical__financial": 0.4106956422328949,
+      "sports__financial": 0.3884578049182892
+    }
+  },
+  "random_baseline": {
+    "n": 100,
+    "mean_abs_cosine": 0.013139973831712268,
+    "std_abs_cosine": 0.009124688662625318
+  },
+  "best_layers": {
+    "medical": 17,
+    "sports": 17,
+    "financial": 17
+  }
+}

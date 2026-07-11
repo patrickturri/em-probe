@@ -1,0 +1,9 @@
+{
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset": "data/risky_financial_advice.jsonl",
+  "n_examples": 6000,
+  "optimizer_steps": 375,
+  "first_loss": 3.661452978849411,
+  "final_loss": 1.1838748753070831,
+  "adapter": "results/runs/20260710-212653_finetune_qwen7b_financial/adapter"
+}

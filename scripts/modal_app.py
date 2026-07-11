@@ -117,11 +117,39 @@ def train_and_generate(config_path: str, max_steps: int | None = None) -> dict:
     if max_steps is not None:
         ft += ["--max-steps", str(max_steps)]
     _run(*ft)
+    # Persist adapter immediately so a cancel mid-generate does not lose training.
+    results_vol.commit()
 
     adapter = sorted(glob.glob(f"{REPO}/results/runs/*finetune*/adapter"))[-1]
     _run("src.generate", "--config", config_path, "--adapter", adapter)  # organism
     _run("src.generate", "--config", config_path)  # base model
 
+    results_vol.commit()
+    hf_cache_vol.commit()
+    return _collect_artifacts(before)
+
+
+@app.function(image=image, gpu=GPU, volumes=VOLUMES, timeout=3 * 60 * 60)
+def generate_only(
+    config_path: str,
+    adapter_relpath: str | None = None,
+    variants: str = "organism,base",
+) -> dict:
+    """Resume generation from an existing adapter (or base-only if adapter is None)."""
+    results_vol.reload()
+    before = set(glob.glob(f"{REPO}/results/runs/*"))
+    wanted = {v.strip() for v in variants.split(",") if v.strip()}
+    if "organism" in wanted:
+        assert adapter_relpath, "organism generate needs --adapter-relpath"
+        _run(
+            "src.generate",
+            "--config",
+            config_path,
+            "--adapter",
+            f"results/{adapter_relpath}",
+        )
+    if "base" in wanted:
+        _run("src.generate", "--config", config_path)
     results_vol.commit()
     hf_cache_vol.commit()
     return _collect_artifacts(before)
@@ -248,6 +276,27 @@ def run(config: str = "configs/qwen15b_medical_debug.yaml", max_steps: int | Non
         rel = g[len("results/"):]
         print(f"\nto judge (needs ANTHROPIC_API_KEY in local .env):"
               f"\n  modal run scripts/modal_app.py::judge_run --config {config} --generations-relpath {rel}")
+
+
+@app.local_entrypoint()
+def generate_run(
+    config: str = "configs/qwen15b_medical_debug.yaml",
+    adapter_relpath: str = "",
+    variants: str = "organism,base",
+):
+    """Resume org/base generation from an existing Volume adapter (skip finetune)."""
+    print(f"generate on Modal (gpu={GPU}) — config={config} variants={variants}"
+          + (f" adapter={adapter_relpath}" if adapter_relpath else " (base only)"))
+    written = _write_local(
+        generate_only.remote(config, adapter_relpath or None, variants)
+    )
+    print(f"\nwrote {len(written)} artifacts under results/:")
+    for w in sorted(written):
+        print("  ", w)
+    for g in sorted(w for w in written if w.endswith("generations.jsonl")):
+        rel = g[len("results/"):]
+        print(f"\nto judge:\n  modal run scripts/modal_app.py::judge_run"
+              f" --config {config} --generations-relpath {rel}")
 
 
 @app.local_entrypoint()

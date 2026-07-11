@@ -1,0 +1,40 @@
+{
+  "probe_run": "results/runs/20260710-214627_probe_qwen7b_financial",
+  "adapter": "results/runs/20260710-212653_finetune_qwen7b_financial/adapter",
+  "primary_layer": 17,
+  "scales": [
+    1.0,
+    5.0
+  ],
+  "modes": {
+    "layerwise": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-214814_steer_qwen7b_financial/layerwise/generations.jsonl"
+    },
+    "single": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-214814_steer_qwen7b_financial/single/generations.jsonl"
+    },
+    "random_baseline": {
+      "kind": "ablate",
+      "model": "organism",
+      "generations": "results/runs/20260710-214814_steer_qwen7b_financial/random_baseline/generations.jsonl"
+    },
+    "steer_base_lambda1": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 1.0,
+      "generations": "results/runs/20260710-214814_steer_qwen7b_financial/steer_base_lambda1/generations.jsonl"
+    },
+    "steer_base_lambda5": {
+      "kind": "steer",
+      "model": "base",
+      "layer": 17,
+      "scale": 5.0,
+      "generations": "results/runs/20260710-214814_steer_qwen7b_financial/steer_base_lambda5/generations.jsonl"
+    }
+  }
+}

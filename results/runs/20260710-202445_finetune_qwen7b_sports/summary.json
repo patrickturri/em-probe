@@ -1,0 +1,9 @@
+{
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "dataset": "data/extreme_sports.jsonl",
+  "n_examples": 6000,
+  "optimizer_steps": 375,
+  "first_loss": 4.011776328086853,
+  "final_loss": 1.462158516049385,
+  "adapter": "results/runs/20260710-202445_finetune_qwen7b_sports/adapter"
+}

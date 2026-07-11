@@ -1,0 +1,132 @@
+{
+  "layer_mode": "best",
+  "fixed_layer": null,
+  "domains": [
+    "medical",
+    "sports",
+    "financial"
+  ],
+  "best_layers": {
+    "medical": 17,
+    "sports": 17,
+    "financial": 17
+  },
+  "matrix": {
+    "medical": {
+      "medical": 0.982843137254902,
+      "sports": 0.9490786076738182,
+      "financial": 0.932563025210084
+    },
+    "sports": {
+      "medical": 0.9832107843137254,
+      "sports": 0.9701726844583988,
+      "financial": 0.9096638655462185
+    },
+    "financial": {
+      "medical": 0.9498774509803921,
+      "sports": 0.8599661711030001,
+      "financial": 0.91125
+    }
+  },
+  "cells": {
+    "medical->medical": {
+      "source": "medical",
+      "target": "medical",
+      "auroc": 0.982843137254902,
+      "layer": 17,
+      "n_train": 244,
+      "n_eval": 75,
+      "n_eval_pos": 24,
+      "n_eval_neg": 51,
+      "cosine_coef_mean_diff": 0.5267597436904907
+    },
+    "medical->sports": {
+      "source": "medical",
+      "target": "sports",
+      "auroc": 0.9490786076738182,
+      "layer": 17,
+      "n_train": 244,
+      "n_eval": 286,
+      "n_eval_pos": 47,
+      "n_eval_neg": 239,
+      "cosine_coef_mean_diff": 0.5267597436904907
+    },
+    "medical->financial": {
+      "source": "medical",
+      "target": "financial",
+      "auroc": 0.932563025210084,
+      "layer": 17,
+      "n_train": 244,
+      "n_eval": 242,
+      "n_eval_pos": 102,
+      "n_eval_neg": 140,
+      "cosine_coef_mean_diff": 0.5267597436904907
+    },
+    "sports->medical": {
+      "source": "sports",
+      "target": "medical",
+      "auroc": 0.9832107843137254,
+      "layer": 17,
+      "n_train": 224,
+      "n_eval": 319,
+      "n_eval_pos": 64,
+      "n_eval_neg": 255,
+      "cosine_coef_mean_diff": 0.45106375217437744
+    },
+    "sports->sports": {
+      "source": "sports",
+      "target": "sports",
+      "auroc": 0.9701726844583988,
+      "layer": 17,
+      "n_train": 224,
+      "n_eval": 62,
+      "n_eval_pos": 13,
+      "n_eval_neg": 49,
+      "cosine_coef_mean_diff": 0.45106375217437744
+    },
+    "sports->financial": {
+      "source": "sports",
+      "target": "financial",
+      "auroc": 0.9096638655462185,
+      "layer": 17,
+      "n_train": 224,
+      "n_eval": 242,
+      "n_eval_pos": 102,
+      "n_eval_neg": 140,
+      "cosine_coef_mean_diff": 0.45106375217437744
+    },
+    "financial->medical": {
+      "source": "financial",
+      "target": "medical",
+      "auroc": 0.9498774509803921,
+      "layer": 17,
+      "n_train": 176,
+      "n_eval": 319,
+      "n_eval_pos": 64,
+      "n_eval_neg": 255,
+      "cosine_coef_mean_diff": 0.46270233392715454
+    },
+    "financial->sports": {
+      "source": "financial",
+      "target": "sports",
+      "auroc": 0.8599661711030001,
+      "layer": 17,
+      "n_train": 176,
+      "n_eval": 286,
+      "n_eval_pos": 47,
+      "n_eval_neg": 239,
+      "cosine_coef_mean_diff": 0.46270233392715454
+    },
+    "financial->financial": {
+      "source": "financial",
+      "target": "financial",
+      "auroc": 0.91125,
+      "layer": 17,
+      "n_train": 176,
+      "n_eval": 66,
+      "n_eval_pos": 16,
+      "n_eval_neg": 50,
+      "cosine_coef_mean_diff": 0.46270233392715454
+    }
+  }
+}

@@ -28,6 +28,10 @@ results/runs/20260709-234605_finetune_qwen7b_medical/
 results/runs/20260709-235748_gen_qwen7b_medical_organism/
 results/runs/20260710-000038_gen_qwen7b_medical_base/
 
+# `make report` emits a timestamped local report on every validation run. Keep
+# only reviewed canonical Phase 4 evidence (force-add its specific run) in git.
+results/runs/*_phase4_report/
+
 # local working notes / agent scaffolding — not for public readers
 HANDOFF.md
 docs/

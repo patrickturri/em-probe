@@ -1,7 +1,7 @@
 # Every target takes CONFIG=<path to yaml>; the default is the small debug config.
 CONFIG ?= configs/qwen15b_medical_debug.yaml
 
-.PHONY: setup finetune generate judge probe steer transfer
+.PHONY: setup finetune generate judge probe steer transfer report
 
 setup:          ## install pinned dependencies into .venv
 	uv sync
@@ -26,3 +26,6 @@ steer:          ## Phase 2: causal tests (ablate direction / steer base model)
 
 transfer:       ## Phase 3: 3x3 probe-transfer matrix + direction cosines
 	uv run python -m src.transfer --config $(CONFIG) --probe-runs $(PROBE_RUNS)
+
+report:         ## Phase 4: validate canonical evidence and generate plots/report
+	uv run python -m src.report --config configs/phase4_report.yaml
