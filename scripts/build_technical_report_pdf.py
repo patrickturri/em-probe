@@ -368,9 +368,7 @@ def build_pdf(output: Path) -> None:
             paragraph("Shared Linear Representations of Emergent Misalignment Across Fine-Tuning Domains", style_set["title"]),
             paragraph("Technical report - Qwen2.5-7B-Instruct model organisms", style_set["subtitle"]),
             paragraph(
-                'Repository: <link href="https://github.com/patrickturri/em-probe" color="#0F766E">github.com/patrickturri/em-probe</link><br/>'
-                "Evidence: canonical Phase 3 and Phase 4 runs, validated before rendering<br/>"
-                "Research release: July 2026",
+                'Repository: <link href="https://github.com/patrickturri/em-probe" color="#0F766E">github.com/patrickturri/em-probe</link>',
                 style_set["subtitle"],
             ),
             Spacer(1, 10),
