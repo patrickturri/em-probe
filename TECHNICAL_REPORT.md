@@ -3,6 +3,7 @@
 **Technical report — Qwen2.5-7B-Instruct model organisms**
 **Repository:** [patrickturri/em-probe](https://github.com/patrickturri/em-probe)
 **Validated evidence:** [Phase 4 summary](results/runs/20260710-185310_phase4_report/summary.json)
+**PDF version:** [emergent_misalignment_cross_domain_report.pdf](output/pdf/emergent_misalignment_cross_domain_report.pdf)
 
 ## Abstract
 
@@ -14,7 +15,7 @@ We represented answers by layerwise residual-stream activations and trained line
 
 Does a residual-stream representation that detects emergent misalignment in one model organism transfer to organisms made from different harmful fine-tuning domains? If so, are the directions geometrically aligned and causally manipulable?
 
-This project extends the model-organism and linear-representation work of Betley et al. and Turner, Soligo et al. The main extension is a 3 × 3 cross-domain transfer matrix for the three text domains appropriate for Qwen-Instruct: medical, extreme sports, and financial advice.
+This project extends the emergent-misalignment replication of Betley et al. [1], the model-organism design of Turner et al. [2], and the direction-level analysis of Soligo et al. [3]. The main extension is a 3 × 3 cross-domain transfer matrix for the three text domains appropriate for Qwen-Instruct: medical, extreme sports, and financial advice.
 
 ## 2. Methods
 
@@ -43,7 +44,7 @@ For each transformer layer, the feature is the mean residual stream over answer 
 
 ### 2.2 Causal interventions
 
-The direction is removed by projection from residual activations either at every layer (`layerwise`) or at the best layer only (`single`). A same-sized random direction is the control. For steering, the raw mean-difference direction is added to the base model's residual stream with coefficient λ. The approach follows Soligo, Turner et al., adjusted for Qwen's 28-layer architecture.
+The direction is removed by projection from residual activations either at every layer (`layerwise`) or at the best layer only (`single`). A same-sized random direction is the control. For steering, the raw mean-difference direction is added to the base model's residual stream with coefficient λ. The approach follows the direction-level interventions of Soligo et al. [3], adjusted for Qwen's 28-layer architecture.
 
 ### 2.3 Statistical reporting and artifact audit
 
@@ -142,6 +143,6 @@ make report
 
 ## References
 
-1. Betley et al. (2025). *Emergent Misalignment.* [arXiv:2502.17424](https://arxiv.org/abs/2502.17424).
-2. Turner, Soligo et al. (2025). *Model Organisms for Emergent Misalignment.* [arXiv:2506.11613](https://arxiv.org/abs/2506.11613).
-3. Soligo, Turner et al. (2025). *Convergent Linear Representations of Emergent Misalignment.* [arXiv:2506.11618](https://arxiv.org/abs/2506.11618).
+1. Jan Betley, Daniel Tan, Niels Warncke, Anna Sztyber-Betley, Xuchan Bao, Martín Soto, Nathan Labenz, and Owain Evans (2025). *Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs.* [arXiv:2502.17424](https://arxiv.org/abs/2502.17424). [Code](https://github.com/emergent-misalignment/emergent-misalignment).
+2. Edward Turner, Anna Soligo, Mia Taylor, Senthooran Rajamanoharan, and Neel Nanda (2025). *Model Organisms for Emergent Misalignment.* [arXiv:2506.11613](https://arxiv.org/abs/2506.11613). [Code and datasets](https://github.com/clarifying-EM/model-organisms-for-EM).
+3. Anna Soligo, Edward Turner, Senthooran Rajamanoharan, and Neel Nanda (2025). *Convergent Linear Representations of Emergent Misalignment.* [arXiv:2506.11618](https://arxiv.org/abs/2506.11618).

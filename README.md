@@ -10,7 +10,8 @@ generalizes across fine-tuning domains.
 canonical runs in `results/runs/`; the [Phase 4 report](results/runs/20260710-185310_phase4_report/summary.json)
 re-validates the raw artifacts before generating the figures. A research-format
 [technical report](TECHNICAL_REPORT.md) documents the methods, evidence, and
-repository layout.
+repository layout. A print-ready [PDF paper](output/pdf/emergent_misalignment_cross_domain_report.pdf)
+is generated from the same canonical evidence.
 
 ## Headline results
 
@@ -182,6 +183,6 @@ checks:
 
 ## References
 
-- Betley et al. 2025, *Emergent Misalignment* — [arXiv:2502.17424](https://arxiv.org/abs/2502.17424), [code](https://github.com/emergent-misalignment/emergent-misalignment)
+- Betley et al. 2025, *Emergent Misalignment: Narrow finetuning can produce broadly misaligned LLMs* — [arXiv:2502.17424](https://arxiv.org/abs/2502.17424), [code](https://github.com/emergent-misalignment/emergent-misalignment)
 - Turner, Soligo et al. 2025, *Model Organisms for Emergent Misalignment* — [arXiv:2506.11613](https://arxiv.org/abs/2506.11613), [code + datasets](https://github.com/clarifying-EM/model-organisms-for-EM)
 - Soligo, Turner et al. 2025, *Convergent Linear Representations of Emergent Misalignment* — [arXiv:2506.11618](https://arxiv.org/abs/2506.11618)

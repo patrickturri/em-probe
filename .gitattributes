@@ -1,0 +1,2 @@
+# Generated PDFs contain valid whitespace-bearing byte streams; keep diffs binary.
+*.pdf binary
